@@ -4,14 +4,18 @@
    CONFIG: fill these in later. Empty values are handled safely.
    ========================================================== */
 const CONFIG = {
-  logo: "",                       // e.g. "assets/logo.svg" (replaces the text logo in the nav)
+  logo: "assets/logo-mark.png",   // shown next to the brand name in the nav; set to "" to use text only
   links: {
     instagram: "",                // full URL, e.g. "https://instagram.com/DA_StudiosX"
     whatsapp: "",                 // full URL, e.g. "https://wa.me/91XXXXXXXXXX"
-    email: "",                    // address only, e.g. "hello@example.com"
+    email: "da.studiox@gmail.com",// address only, e.g. "hello@example.com"
     phone: ""                     // number only, e.g. "+911234567890"
   },
-  formEndpoint: "",               // future backend / email service URL (POST, JSON)
+  // FormSubmit (https://formsubmit.co) forwards this POST to da.studiox@gmail.com as an email.
+  // First submission after going live sends a one-time confirmation link to that inbox —
+  // click it once, then every inquiry after that arrives as email. No backend or API key needed.
+  // Swap this for your own endpoint later if you move to a different service.
+  formEndpoint: "https://formsubmit.co/ajax/da.studiox@gmail.com",
   // { title, category: "Social|Branding|Content|Campaigns|Video", type: "image|video|case",
   //   media: "assets/file.jpg or .mp4", alt: "", description: "", url: "" }
   projects: [],
@@ -273,7 +277,7 @@ function initForm() {
    Boot
    ========================================================== */
 function init() {
-  if (CONFIG.logo) $("#brand").innerHTML = `<img src="${esc(CONFIG.logo)}" alt="DA StudiosX">`;
+  if (CONFIG.logo) $("#brandMark").innerHTML = `<img src="${esc(CONFIG.logo)}" alt="">`; // decorative: #brandText already names the brand
   $$("[data-link]").forEach(a => setLink(a, CONFIG.links[a.dataset.link], a.dataset.link));
   $$("a[aria-disabled='true']").forEach(a => a.addEventListener("click", e => e.preventDefault()));
 

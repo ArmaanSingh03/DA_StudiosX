@@ -34,8 +34,9 @@ a[aria-disabled=true]{cursor:default}
 /* Nav */
 .nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:1.4rem var(--pad);transition:background .5s,padding .5s,border-color .5s;border-bottom:1px solid transparent}
 .nav.scrolled{background:rgba(10,10,11,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding-block:.85rem;border-color:var(--line)}
-.brand{font-weight:600;font-size:1.15rem;letter-spacing:-.02em}
-.brand img{display:block;height:28px}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:600;font-size:1.15rem;letter-spacing:-.02em}
+.brand img{display:block;height:24px;width:auto}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 #menu{display:flex;align-items:center;gap:2rem}
 #menu a:not(.btn){color:var(--muted);font-size:.92rem;position:relative;transition:color .3s}
 #menu a:not(.btn):hover,#menu a.active{color:var(--text)}
